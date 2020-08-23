@@ -105,3 +105,13 @@ if(OATPP_BUILD_TESTS)
     enable_testing()
     add_subdirectory("test")
 endif()
+
+install(TARGETS ${OATPP_THIS_MODULE_NAME} EXPORT  ${OATPP_THIS_MODULE_NAME}Export
+        LIBRARY        DESTINATION lib
+        INCLUDES       DESTINATION include
+        PUBLIC_HEADER  DESTINATION include)
+install(EXPORT  ${OATPP_THIS_MODULE_NAME}Export
+        FILE    ${OATPP_THIS_MODULE_NAME}-config.cmake
+        DESTINATION share/cmake/${OATPP_THIS_MODULE_NAME}
+        EXPORT_LINK_INTERFACE_LIBRARIES
+)
